@@ -1,0 +1,125 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "MLflow Experiments Dashboard",
+    "tags": ["mlflow", "mlops", "experiments"],
+    "style": "dark",
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Model Accuracy Over Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mlflow_accuracy",
+            "legendFormat": "Accuracy - {{run_id}}",
+            "refId": "A"
+          }
+        ],
+        "xAxis": {
+          "show": true,
+          "mode": "time"
+        },
+        "yAxes": [
+          {
+            "label": "Accuracy",
+            "min": 0,
+            "max": 1
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "Model Loss Over Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mlflow_loss",
+            "legendFormat": "Loss - {{run_id}}",
+            "refId": "A"
+          }
+        ],
+        "xAxis": {
+          "show": true,
+          "mode": "time"
+        },
+        "yAxes": [
+          {
+            "label": "Loss",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Best Models Comparison",
+        "type": "table",
+        "targets": [
+          {
+            "expr": "topk(5, mlflow_accuracy)",
+            "format": "table",
+            "refId": "A"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 8
+        }
+      },
+      {
+        "id": 4,
+        "title": "Accuracy Distribution",
+        "type": "histogram",
+        "targets": [
+          {
+            "expr": "mlflow_accuracy",
+            "refId": "A"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 16
+        }
+      },
+      {
+        "id": 5,
+        "title": "Loss Distribution",
+        "type": "histogram",
+        "targets": [
+          {
+            "expr": "mlflow_loss",
+            "refId": "A"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 16
+        }
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "refresh": "5s"
+  }
+}

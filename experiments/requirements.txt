@@ -1,0 +1,12 @@
+# MLflow and ML libraries
+mlflow==2.8.1
+scikit-learn==1.3.2
+numpy==1.24.3
+pandas==2.0.3
+
+# Prometheus client for metrics pushing
+prometheus-client==0.17.1
+
+# Additional dependencies
+boto3==1.28.57
+psycopg2-binary==2.9.7
